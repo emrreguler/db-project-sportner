@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block title %}Equipmnent Tool Post list{% endblock %}
+{% block content %}
+    <h1 class="title">Equipment and Tool Posts</h1>
+    
+     <ul>
+        <a class="button is-link" href="{{ url_for('eqtool_add_page', eqtoolnum=eqtoolnumtemp) }}"> Add Your Equipment or Tool</a>
+      </ul>
+    
+    {% if post %}
+    <table class="table is-striped is-fullwidth">
+      {% for postid in post %}
+      <tr>
+        <td>
+          <b><p style="text-align:left">{{ postid.8 }}</p></b>           
+          <b><p style="text-align:center">{{ postid.3 }}</p></b>
+          <p style="text-align:center">{{ postid.4 }}</p>
+          <p style="text-align:right">{{ postid.2 }}</p>
+          <b>Is it for sale? : </b><p style="text-align:left">{{ postid.0 }}</p>
+          <b>Is it shared? : </b> <p style="text-align:left">{{ postid.1 }}</p>
+          <ul>
+            <a class="button is-link" href="{{ url_for('comment_page', postnum=postid.6) }}">Comments</a> 
+          </ul> 
+        {% if current_user.userid == postid.5 %}
+            <ul>
+                <a style="float:right"><a class="button is-link" href="{{ url_for('delete_eqtool', postId=postid.6, eqtoolId=postid.7) }}">Delete Your Post</a></a> 
+            </ul>
+        {% endif %} 
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% endif %}
+{% endblock %}

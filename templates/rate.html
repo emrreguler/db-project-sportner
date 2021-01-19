@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block title %}Rate{% endblock %}
+{% block content %}
+    <h1 class="title">Rate</h1>
+
+    <form action="" method="post" name="rates">
+      <table class="table is-striped is-fullwidth">
+        <input type="radio" id="5" name="rate" value="5">
+        <label for="5">5</label><br>
+        <input type="radio" id="4" name="rate" value="4">
+        <label for="4">4</label><br>
+        <input type="radio" id="3" name="rate" value="3">
+        <label for="3">3</label><br>
+        <input type="radio" id="2" name="rate" value="2">
+        <label for="2">2</label><br>
+        <input type="radio" id="1" name="rate" value="1">
+        <label for="1">1</label><br>
+        <input type="radio" id="0" name="rate" value="0">
+        <label for="0">0</label><br>
+
+      </table>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-danger is-small">Rate</button>
+        </div>
+      </div>
+    </form>
+{% endblock %}

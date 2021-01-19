@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block title %}Edit Location{% endblock %}
+{% block content %}
+    <h1 class="title">Add New Sportplace</h1>
+
+    <form action="" method="post" name="sportplace_edit">
+      <div class="field">
+        <label for="title" class="label">Country</label>
+        <div class="control">
+          <input type="text" name="country" class="input" required="required"/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="title" class="label">City</label>
+        <div class="control">
+          <input type="text" name="city" class="input" required="required"/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="title" class="label">District</label>
+        <div class="control">
+          <input type="text" name="district" class="input"/>
+        </div>
+      </div>
+
+      
+      <div class="field">
+        <label for="title" class="label">Name</label>
+        <div class="control">
+          <input type="text" name="name" class="input"/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="title" class="label">The Sport You Can Do</label>
+        <div class="control">
+          <input type="text" name="sport" class="input"/>
+        </div>
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-primary is-small">Save</button>
+        </div>
+      </div>
+    </form>
+{% endblock %}

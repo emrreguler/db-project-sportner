@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block title %}Post list{% endblock %}
+{% block content %}
+    <h1 class="title">Posts</h1>
+    {% if post|length==0 %} 
+      <ul></ul>
+        <a class="button is-link" href="{{ url_for('post_add_page', sportnum=sportnumtemp) }}">Find Someone!</a>
+      </ul>
+    {% endif %}
+    {% if post %}
+    <table class="table is-striped is-fullwidth">
+      {% for postid in post %}
+      <tr>
+        <td>
+          {% if loop.index == 1 %}
+            <ul></ul>
+              <a class="button is-link" href="{{ url_for('post_add_page', sportnum=postid.5) }}">Find Someone!</a>
+            </ul>
+          {% endif %}
+          <b><p style="text-align:left">{{ postid.6 }}</p></b>
+          <b><p style="text-align:center">{{ postid.3 }}</p></b>
+          <p style="text-align:center">{{ postid.4 }}</p>
+          <p style="text-align:right">{{ postid.2 }}</p>
+          <ul>
+            <a class="button is-link" href="{{ url_for('comment_page', postnum=postid.0) }}">Comments</a>
+        
+          {% if current_user.userid == postid.1 %}
+            <a style="float:right"><a class="button is-link" href="{{ url_for('delete_posts', postId=postid.0, sportId=postid.5) }}">Delete Your Post</a></a> 
+        </ul>
+        {% endif %} 
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% endif %}
+{% endblock %}

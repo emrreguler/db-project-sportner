@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block title %}Sports Places list{% endblock %}
+{% block content %}
+    <h1 class="title">Sports Places</h1>
+   
+    {% if sportplace %}
+    <table class="table is-striped is-fullwidth">
+      {% for sportsplaceid in sportplace %}
+      <tr>
+        <td>
+          <b>Name: </b>{{sportsplaceid.3}}<br/>
+          
+          <b>Your Rate: </b> {{sportsplaceid.4}}/5<br/>
+
+          <b>Sport You Can Do: </b> {{sportsplaceid.5}}<br/>
+          <ul>
+            <a class="button is-link" href="{{ url_for('rate_sportplace_page', placeid=sportsplaceid.0) }}">Rate the Sport Place</a>
+          </ul>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% endif %}
+    <ul></ul>
+      <a class="button is-link" href="{{ url_for('sportplace_add_page') }}">Add Sport Place</a>
+    </ul>
+{% endblock %}

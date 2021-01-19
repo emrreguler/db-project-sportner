@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block title %}Sports list{% endblock %}
+{% block content %}
+    <h1 class="title">Sports</h1>
+    <small>click on the sport to see the posts</small>
+    {% if sport %}
+    <table class="table is-striped is-fullwidth">
+      {% for sportsid in sport %}
+      <tr>
+        <td>
+          <ul>
+            <li><a href="{{ url_for('posts_page',sportid=sportsid.0)}}"> {{ sportsid.1 }}</a></li>
+          </ul>
+          {% if sportsid.2 %}  Team Sport<br/>  {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% endif %} 
+{% endblock %}

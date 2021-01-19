@@ -1,0 +1,21 @@
+h1{
+    color:red
+}
+
+footer{
+    text-align: center;
+}
+
+
+logout {
+    line-height: 12px;
+    width: 18px;
+    font-size: 8pt;
+    font-family: tahoma;
+    margin-top: 15px;
+    margin-left: 200x;
+    position:fixed;
+    float:right;
+    top:0;
+    right:0;
+}

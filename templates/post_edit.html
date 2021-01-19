@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block title %}Add Post{% endblock %}
+{% block content %}
+    <h1 class="title">Add Post</h1>
+
+    <form action="" method="post" name="post_edit">
+      <div class="field">
+        <label for="title" class="label">Title</label>
+        <div class="control">
+          <input type="text" name="title" class="input"/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="title" class="label">Description</label>
+        <div class="control">
+          <input type="text" name="description" class="input"/>
+        </div>
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-primary is-small">Save</button>
+        </div>
+      </div>
+    </form>
+{% endblock %}

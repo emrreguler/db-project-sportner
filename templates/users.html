@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}Users{% endblock %}
+{% block content %}
+    <h1 class="title">Users</h1>
+    {% if users %}
+    <table class="table is-striped is-fullwidth">
+      {% for userssid in users %}
+      <tr>
+        <td>
+            <b>Name: </b>{{ userssid.0 }}<br/>
+            <b>Surname: </b>{{ userssid.1 }}<br/>
+            <b>Age: </b>{{ userssid.2 }}<br/>
+            <b>Your Rate: </b>{{ userssid.4 }}<br/>
+            <b>Proficiency: </b>{{ userssid.3 }}<br/>
+            {%if current_user.userid!=userssid.5%}
+            <ul>
+              <a class="button is-link" href="{{ url_for('rate_page', useriD=userssid.5) }}">Rate Your Partner</a>
+            </ul>
+            {%endif%}
+        </td> 
+      </tr>
+      {% endfor %}
+    </table>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block title %}Comment list{% endblock %}
+{% block content %}
+    <h1 class="title">Comment</h1>
+    {% if comment|length==0 %} 
+      <ul></ul>
+        <a class="button is-link" href="{{ url_for('comment_add_page', postsid=postnumtemp) }}">Add Comment</a>
+      </ul>
+    {% endif %}
+    {% if comment %}
+    <table class="table is-striped is-fullwidth">
+      {% for commentid in comment %}
+        {% if loop.index == 1 %}  
+          <ul></ul>
+                <a class="button is-link" href="{{ url_for('comment_add_page', postsid=commentid.2) }}">Add Comment</a>
+            </ul>
+        {% endif %}
+      <tr>
+        <td>
+          <b><p style="text-align:left">{{ commentid.5 }}</p></b>
+          {{commentid.4}}<br/>
+          {{commentid.3}}<br/>
+          {% if current_user.userid == commentid.1 %}
+            <ul>
+              <a style="float:right"><a class="button is-link" href="{{ url_for('delete_comments', postID=commentid.2, commentId=commentid.0) }}">Delete Your Comment</a></a> 
+            </ul>
+          {% endif %}
+        </td>
+      </tr>
+        
+      {% endfor %}
+    </table>
+    {% endif %}
+{% endblock %}

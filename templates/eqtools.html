@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block title %}Equipment and Tool list{% endblock %}
+{% block content %}
+    <h1 class="title">Equipment and Tools</h1>
+    {% if eqtool %}
+    <table class="table is-striped is-fullwidth">
+      {% for eqtoolid in eqtool %}
+      <tr>
+        <td>
+          <ul>
+            <li><a href="{{ url_for('post_eqtool_page', eqtooliD=eqtoolid.0) }}"> {{ eqtoolid.1 }}</a></li>
+          </ul>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% endif %}
+{% endblock %}

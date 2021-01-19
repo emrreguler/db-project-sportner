@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+    <h1 class="title">Login</h1>
+    <title>My Application</title>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
+    {% block body %}{% endblock %}
+    <form action="" method="post" name="post_edit">
+      <div class="field">
+        <label for="title" class="label">E-Mail</label>
+        <div class="control">
+          <input type="text" name="email" class="input"/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="title" class="label">Password</label>
+        <div class="control">
+          <input type="password" name="password" class="input"/>
+        </div>
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-primary is-small">Login</button>
+        </div>
+      </div>
+    </form>
+    
+    <ul>
+      <p style="text-align:center"><a class="button is-link" href="{{ url_for('user_add_page') }}">Sign Up</a></p> 
+    </ul>
+    
+{% endblock %}

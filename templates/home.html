@@ -1,0 +1,33 @@
+{% extends "layout.html"%}
+{% block title %} Home {% endblock%}
+{% block content %}
+ 
+  <h1 style="text-align:center">Sportner</h1>
+    <p>Welcome</p>
+    <p>Have a nice {{day}}, {{current_user.username}}</p>
+
+    <ul>
+      <p style="text-align:center"><a class="button is-link" href="{{ url_for('eqtools_page') }}">Equipment and Tools</a></p> 
+    </ul>
+    <ul>
+      <p style="text-align:center"><a class="button is-link" href="{{ url_for('sports_page') }}">Let's Do Sports!</a></p> 
+    </ul>
+    <ul>
+      <p style="text-align:center"><a class="button is-link" href="{{ url_for('sportsplace_page') }}">Sports Places</a></p> 
+    </ul>
+    {% if current_user.username|length==0 %}
+    <ul>
+      <p style="text-align:center"><a class="button is-link" href="{{ url_for('login_page') }}">Login</a></p> 
+    </ul>
+    {% endif %}
+    {% if current_user.username|length!=0 %}
+    <ul>
+      <p style="text-align:right"><a class="button is-link" href="{{ url_for('update_user') }}">Update Your Profile</a></p> 
+    </ul>
+    <ul>
+      <p style="text-align:right"><a class="button is-link" href="{{ url_for('delete_user') }}">Delete Your Account</a></p> 
+    </ul>
+    {% endif %}
+{%endblock%}
+</body>
+</html>

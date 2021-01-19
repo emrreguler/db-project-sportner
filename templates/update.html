@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css"/>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='sportner.css') }}"/>
+  </head>
+
+    <main>
+        <section class="section">
+        <div class="content">
+        {% block content %}
+        
+    <h1 class="title">Update Your Profile</h1>
+
+    <form action="" method="post" name="user_update">
+      <div class="field">
+        <label for="title" class="label">Name</label>
+        <div class="control">
+          <input type="text" name="username" class="input"/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="title" class="label">Surname</label>
+        <div class="control">
+          <input type="text" name="surname" class="input"/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="title" class="label">E-Mail</label>
+        <div class="control">
+          <input type="text" name="email" class="input"/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="title" class="label">Password</label>
+        <div class="control">
+          <input type="text" name="password" class="input"/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="title" class="label">Age</label>
+        <div class="control">
+          <input type="integer" name="age" class="input"/>
+        </div>
+      </div>
+      
+      <div class="field">
+        <label for="title" class="label">Country</label>
+        <div class="control">
+          <input type="text" name="country" class="input"/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="title" class="label">City</label>
+        <div class="control">
+          <input type="text" name="city" class="input"/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="title" class="label">District</label>
+        <div class="control">
+          <input type="text" name="district" class="input"/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="title" class="label">Select Your Proficiency</label>
+        <div class="control">
+          <select name="proficiency" id="prof">
+            <option value="Advanced">Advanced</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Beginner">Beginner</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-primary is-small">Update</button>
+        </div>
+      </div>
+    </form>
+
+    </div>
+    </section>
+    </main>
+
+{% endblock %}
